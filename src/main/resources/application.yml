@@ -1,0 +1,15 @@
+server:
+    port: 80
+zuul:
+  ignored-services: "*"
+  sensitiveHeaders: Cookie,Set-Cookie,Authorization
+  routes:
+     root:
+       path: /**
+       url: http://localhost:8080
+     edi-map:
+       path: /edi/map/api/**
+       url: http://localhost:8081/edi/map/api
+     edi-map-external:
+       path: /edi/sm.php*
+       url: http://localhost:8081/edi/
